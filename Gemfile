@@ -57,3 +57,5 @@ gem 'aasm'
 gem 'devise'
 
 gem 'activeadmin_addons'
+
+gem 'mdbootstrap-rails'

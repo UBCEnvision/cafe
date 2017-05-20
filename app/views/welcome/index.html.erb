@@ -1,73 +1,33 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>fApp: Finance App | UBC Chem-E-Car</title>
-    <%= csrf_meta_tags %>
+<main>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-      body {
-          background: #141E30; /* fallback for old browsers */
-          background: -webkit-linear-gradient(to left, #141E30 , #243B55); /* Chrome 10-25, Safari 5.1-6 */
-          background: linear-gradient(to left, #141E30 , #243B55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      }
-      h1{
-      	color: white;
-      }
-      input {
-       color: #FFFFFF !important;
-       display: inline-block;
-       border:1px solid #BFBFBF;
-       border-radius: 30px;
-       -webkit-border-radius: 30px;
-       -moz-border-radius: 30px;
-       width: auto;
-       height: auto;
-       padding: 10px 40px;
-       background: rgba(255,255,255,0.1);
-       text-decoration:none;
-       margin-left: 30px;
-       margin-right: 30px;
-      }
-      input:hover, input:active{
-       border:1px solid #BFBFBF;
-       color: #FFFFFF;
-       text-decoration:none;
-       background: rgba(255,255,255,0.1);
-      }
-      .center-block {
-          font-family: 'Merriweather', serif !important;
-          text-align: center;
-          color: white;
-          border-radius: 1em;
-          padding: 1em;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin-right: -50%;
-          transform: translate(-50%, -50%);
-          border: 2px solid white;
-          border-radius: 5px;
-          padding: 40px;
-      }
-    </style>
-  </head>
+  <!--Main layout-->
+  <div class="container">
+      <!--First row-->
+      <div class="row wow fadeIn" data-wow-delay="0.2s">
+          <div class="col-md-12">
+              <div class="jumbotron">
+                  <h1>CHBE Cafe</h1>
+                  <h2>$1 Americano</h2>
+                  <h2 class="h2-responsive"><i class="fa fa-coffee fa-4x"></i></h2>
+                  <br>
+                  <%= form_for @order, :html => {:class => 'md-form'} do |f| %>
+                    <%= f.text_field :name, :placeholder => "Enter your name..."%><br />
+                    <br/ >
+                    <%= f.submit 'Order', :class => 'btn btn-success' %>
+                  <% end %>       
+              </div>
+          </div>
+      </div>
+      <!--/.First row-->
 
-  <body>
-  <div class="center-block">
-    <h1><i class="fa fa-coffee fa-2x" aria-hidden="true"></i></h1>
-    <h1>$1 Americano</h1>
-    <!-- <input type="text" class="form-control" id="usr"> -->
+      <hr class="extra-margins">
+      
+      <div class="text-center">
+        <p>Pickup in Room 313, CHBE Building. Cash Only.</p>
+        <%= link_to "Track My Order", orders_path, :class => 'btn btn-primary' %>
+      </div>      
 
-		<%= form_for @order do |f| %>
-		  <%= f.text_field :name, :placeholder => "Enter your name..."%><br />
-		  <br/ >
-		  <%= f.submit %>
-		<% end %>
-		<p> Pickup in Room 313, CHBE Building</p>
   </div>
-  </body>
-</html>
+  <!--/.Main layout-->
+
+</main>
