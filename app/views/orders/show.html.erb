@@ -1,14 +1,31 @@
-<p id="notice"><%= notice %></p>
+<main>
+  <!--Main layout-->
+  <div class="container">
+      <!--First row-->
+      <p id="notice"><%= notice %></p>
+      <div class="row wow fadeIn" data-wow-delay="0.2s">
+          <div class="col-md-12">
+              <div class="jumbotron">
+                  <h1> Chem-E-Cafe </h1>
+                  <hr>
+                  <h2>Hello, <%= @order.name %></h2>
+                  <h3>Your order ID is: <%= @order.id %></h3>
+                  <h2 class="h2-responsive"><i class="fa fa-coffee fa-4x"></i></h2>
+                  <br>
+                  <h2>Order Status: <b> <%= @order.aasm_state.capitalize %> </b></h2>
+              </div>
+          </div>
+      </div>
+      <!--/.First row-->
 
-<p>
-  <strong>Name:</strong>
-  <%= @order.name %>
-</p>
+      <hr class="extra-margins">
 
-<p>
-  <strong>Aasm state:</strong>
-  <%= @order.aasm_state %>
-</p>
+      <div class="text-center">
+        <p>Pickup in Room 313, CHBE Building. Cash Only.</p>
+        <%= link_to "Track My Order", orders_path, :class => 'btn btn-primary' %>
+      </div>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+  </div>
+  <!--/.Main layout-->
+
+</main>

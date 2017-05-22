@@ -4643,3 +4643,641 @@ Processing by OrdersController#index as HTML
 Completed 200 OK in 401ms (Views: 396.7ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:07:46 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 807ms (Views: 770.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:07:50 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 252ms (Views: 247.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2017-05-21 18:07:54 -0700
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TgGWNNdy4mR7GjCTpUp9BSrTQ4kBW4MYhmcHtHNS0mLP8d1jLWPtme6JGU5kE/wNiKlTMdkoHZ9OMSocQIl/8w==", "order"=>{"name"=>"lol"}, "commit"=>"Order"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "lol"], ["created_at", "2017-05-22 01:07:54.876395"], ["updated_at", "2017-05-22 01:07:54.876395"]]
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 26ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:07:54 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 299ms (Views: 295.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:08:16 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 211ms (Views: 204.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2017-05-21 18:08:26 -0700
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TgGWNNdy4mR7GjCTpUp9BSrTQ4kBW4MYhmcHtHNS0mLP8d1jLWPtme6JGU5kE/wNiKlTMdkoHZ9OMSocQIl/8w==", "order"=>{"name"=>""}, "commit"=>"Order"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:29:in `create'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.7ms)
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:09:06 -0700
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "namespace"], ["LIMIT", 1]]
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 210ms (Views: 207.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:09:09 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.8ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 251ms (Views: 219.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2017-05-21 18:09:11 -0700
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4jcrm87Naqs49Bv89PZKxO/b8r+tVeqoPw5mN+W0sthjx2DMNNxlVq1nMiE1r8vMTaHiB3UmdC/3WEuf1m8fSQ==", "order"=>{"name"=>"lol"}, "commit"=>"Order"}
+  [1m[35m (2.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "orders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "lol"], ["created_at", "2017-05-22 01:09:11.872389"], ["updated_at", "2017-05-22 01:09:11.872389"]]
+  [1m[35m (9.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/orders/16
+Completed 302 Found in 30ms (ActiveRecord: 15.4ms)
+
+
+Started GET "/orders/16" for 127.0.0.1 at 2017-05-21 18:09:11 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 382ms (Views: 373.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:09:33 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 200ms (Views: 197.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:09:39 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.7ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 443ms (Views: 429.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-05-21 18:11:09 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb
+  Rendered /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb (209.2ms)
+Completed 200 OK in 245ms (Views: 212.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/setting" for 127.0.0.1 at 2017-05-21 18:11:11 -0700
+Processing by Admin::SettingController#index as HTML
+  [1m[36mAdminUser Load (1.1ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT var, value FROM "settings" WHERE (thing_type is NULL and thing_id is NULL)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT var, value FROM "settings" WHERE (thing_type is NULL and thing_id is NULL)[0m
+  Rendered /var/lib/gems/2.3.0/gems/activeadmin_settings_cached-2.1.0/app/views/admin/settings/_index.html.erb (15.9ms)
+  Rendered /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb (255.4ms)
+Completed 200 OK in 274ms (Views: 266.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/admin/setting/update" for 127.0.0.1 at 2017-05-21 18:11:14 -0700
+Processing by Admin::SettingController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BiiTNsWJJOb07DR+0mENXvRAdWGsnkyvxfqAX0q2JVaH2NhhP5grG2F/HaMTOIxWVjpl2XTt0igNrK33eW2Ixw==", "settings"=>{"is_cafe_open"=>"false"}, "commit"=>"Save Settings"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: Method map is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html (called from cast_params at /var/lib/gems/2.3.0/gems/activeadmin_settings_cached-2.1.0/lib/activeadmin_settings_cached/coercions.rb:16)
+  [1m[36mSetting Load (1.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "settings" SET "value" = ?, "updated_at" = ? WHERE "settings"."id" = ?[0m  [["value", "--- 'false'\n"], ["updated_at", "2017-05-22 01:11:14.237326"], ["id", 1]]
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from redirect_to at /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/redirecting.rb:66)
+Redirected to http://localhost:3000/admin/setting
+Completed 302 Found in 41ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/admin/setting" for 127.0.0.1 at 2017-05-21 18:11:14 -0700
+Processing by Admin::SettingController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb
+  [1m[36mSetting Load (0.3ms)[0m  [1m[34mSELECT var, value FROM "settings" WHERE (thing_type is NULL and thing_id is NULL)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT var, value FROM "settings" WHERE (thing_type is NULL and thing_id is NULL)[0m
+  Rendered /var/lib/gems/2.3.0/gems/activeadmin_settings_cached-2.1.0/app/views/admin/settings/_index.html.erb (11.1ms)
+  Rendered /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb (215.1ms)
+Completed 200 OK in 219ms (Views: 217.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:11:16 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (1.5ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 230ms (Views: 215.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:15:40 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.8ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 233ms (Views: 220.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-05-21 18:17:30 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb
+  Rendered /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb (264.3ms)
+Completed 200 OK in 274ms (Views: 266.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/setting" for 127.0.0.1 at 2017-05-21 18:17:33 -0700
+Processing by Admin::SettingController#index as HTML
+  [1m[36mAdminUser Load (1.0ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT var, value FROM "settings" WHERE (thing_type is NULL and thing_id is NULL)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT var, value FROM "settings" WHERE (thing_type is NULL and thing_id is NULL)[0m
+  Rendered /var/lib/gems/2.3.0/gems/activeadmin_settings_cached-2.1.0/app/views/admin/settings/_index.html.erb (4.3ms)
+  Rendered /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb (221.4ms)
+Completed 200 OK in 243ms (Views: 230.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/admin/setting/update" for 127.0.0.1 at 2017-05-21 18:17:36 -0700
+Processing by Admin::SettingController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sVn3n4p7EpUH8tgZfBZRb4MiE/JPco/ZntRI+h+9C+cwqbzIcGodaJJh8cS9T9BnIVgDSpcBEV5WgmVSLGamdg==", "settings"=>{"is_cafe_open"=>"true"}, "commit"=>"Save Settings"}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: Method map is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.3/classes/ActionController/Parameters.html (called from cast_params at /var/lib/gems/2.3.0/gems/activeadmin_settings_cached-2.1.0/lib/activeadmin_settings_cached/coercions.rb:16)
+  [1m[36mSetting Load (2.0ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "settings" SET "value" = ?, "updated_at" = ? WHERE "settings"."id" = ?[0m  [["value", "--- 'true'\n"], ["updated_at", "2017-05-22 01:17:36.589666"], ["id", 1]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from redirect_to at /var/lib/gems/2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/redirecting.rb:66)
+Redirected to http://localhost:3000/admin/setting
+Completed 302 Found in 46ms (ActiveRecord: 14.4ms)
+
+
+Started GET "/admin/setting" for 127.0.0.1 at 2017-05-21 18:17:36 -0700
+Processing by Admin::SettingController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? ORDER BY "admin_users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb
+  [1m[36mSetting Load (0.8ms)[0m  [1m[34mSELECT var, value FROM "settings" WHERE (thing_type is NULL and thing_id is NULL)[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT var, value FROM "settings" WHERE (thing_type is NULL and thing_id is NULL)[0m
+  Rendered /var/lib/gems/2.3.0/gems/activeadmin_settings_cached-2.1.0/app/views/admin/settings/_index.html.erb (12.6ms)
+  Rendered /home/siang/.bundle/ruby/2.3.0/activeadmin-8f7f58016802/app/views/active_admin/page/index.html.arb (307.1ms)
+Completed 200 OK in 322ms (Views: 315.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:17:37 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.3ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 258ms (Views: 253.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2017-05-21 18:17:40 -0700
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0/IxzJpbhO0IQFA4qMMK9u3+98CUd4ZqfS8m9buoUUVSAnqbYEqLEJ3TeeVpmov+T4TneEwEGO21eQtdiHP81A==", "order"=>{"name"=>"asdsa"}, "commit"=>"Order"}
+  [1m[35m (2.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "asdsa"], ["created_at", "2017-05-22 01:17:40.336098"], ["updated_at", "2017-05-22 01:17:40.336098"]]
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/orders/17
+Completed 302 Found in 21ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/orders/17" for 127.0.0.1 at 2017-05-21 18:17:40 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 310ms (Views: 304.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:17:58 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 185ms (Views: 182.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:19:23 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.4ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 210ms (Views: 205.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2017-05-21 18:19:26 -0700
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gQ3EQ9/uICcbfycS6dOt7RzgAtjmFANAPu/DdkRhwEsA/Y8UJf8v2o7sDs8oiizlvpoSYD5nncf2ue7ed7pt2g==", "order"=>{"name"=>"232"}, "commit"=>"Order"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "232"], ["created_at", "2017-05-22 01:19:26.405735"], ["updated_at", "2017-05-22 01:19:26.405735"]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/orders/18
+Completed 302 Found in 13ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:19:26 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 375ms (Views: 370.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:19:49 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 188ms (Views: 184.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:19:58 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 238ms (Views: 226.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:20:08 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 224ms (Views: 215.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:20:12 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 347ms (Views: 340.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:20:21 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 239ms (Views: 223.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:20:31 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 284ms (Views: 278.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:20:38 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 190ms (Views: 188.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:21:50 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 223ms (Views: 217.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:21:51 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 282ms (Views: 278.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:21:58 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 203ms (Views: 199.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:22:05 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 248ms (Views: 240.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:22:44 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 185ms (Views: 181.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:23:03 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 260ms (Views: 254.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:23:59 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 313ms (Views: 309.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:03 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 331ms (Views: 327.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:04 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 308ms (Views: 299.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:05 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (10.3ms)
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:06 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (13.4ms)
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:06 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (31.9ms)
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:06 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 1064ms (Views: 1058.3ms | ActiveRecord: 0.4ms)
+
+
+Completed 200 OK in 998ms (Views: 990.8ms | ActiveRecord: 0.8ms)
+
+
+Completed 200 OK in 835ms (Views: 824.5ms | ActiveRecord: 0.6ms)
+
+
+Completed 200 OK in 569ms (Views: 567.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:09 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (42.8ms)
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:09 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (11.3ms)
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:09 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (14.9ms)
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:10 -0700
+Processing by OrdersController#index as HTML
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:10 -0700
+  Rendering orders/index.html.erb within layouts/application
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (33.5ms)
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 1352ms (Views: 1348.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:10 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 1655ms (Views: 1646.5ms | ActiveRecord: 0.4ms)
+
+
+Completed 200 OK in 1487ms (Views: 1485.1ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 1456ms (Views: 1453.9ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 1389ms (Views: 1378.4ms | ActiveRecord: 0.5ms)
+
+
+Completed 200 OK in 855ms (Views: 842.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:18 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 252ms (Views: 249.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:28 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 208ms (Views: 206.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:24:32 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 380ms (Views: 375.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:33 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 192ms (Views: 187.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/17" for 127.0.0.1 at 2017-05-21 18:24:34 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 343ms (Views: 339.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:36 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 213ms (Views: 205.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:24:53 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 190ms (Views: 187.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:25:00 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.3ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 258ms (Views: 252.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:25:02 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 318ms (Views: 315.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:25:04 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 275ms (Views: 272.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:25:18 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (1.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 218ms (Views: 213.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:25:36 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 224ms (Views: 221.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/18" for 127.0.0.1 at 2017-05-21 18:25:42 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 272ms (Views: 268.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:25:45 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (1.6ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 268ms (Views: 251.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-21 18:25:51 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mSetting Load (0.5ms)[0m  [1m[34mSELECT  "settings".* FROM "settings" WHERE (thing_type is NULL and thing_id is NULL) AND "settings"."var" = ? ORDER BY "settings"."id" ASC LIMIT ?[0m  [["var", "is_cafe_open"], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 248ms (Views: 238.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2017-05-21 18:25:53 -0700
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE ("orders"."aasm_state" != ?) ORDER BY created_at DESC[0m  [["aasm_state", "completed"]]
+  Rendered orders/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 344ms (Views: 337.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders/17" for 127.0.0.1 at 2017-05-21 18:25:54 -0700
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering orders/show.html.erb within layouts/application
+  Rendered orders/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 326ms (Views: 318.1ms | ActiveRecord: 1.0ms)
+
+
