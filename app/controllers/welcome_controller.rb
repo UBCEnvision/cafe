@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
 
   def index
   	@order = Order.new
+    @is_open = Setting.is_cafe_open
   end
 
   private

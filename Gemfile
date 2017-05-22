@@ -59,3 +59,4 @@ gem 'devise'
 gem 'activeadmin_addons'
 
 gem 'mdbootstrap-rails'
+gem 'activeadmin_settings_cached'

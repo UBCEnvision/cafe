@@ -6,26 +6,30 @@
       <div class="row wow fadeIn" data-wow-delay="0.2s">
           <div class="col-md-12">
               <div class="jumbotron">
-                  <h1>CHBE Cafe</h1>
+                  <h1>Chem-E-Cafe</h1>
                   <h2>$1 Americano</h2>
                   <h2 class="h2-responsive"><i class="fa fa-coffee fa-4x"></i></h2>
                   <br>
-                  <%= form_for @order, :html => {:class => 'md-form'} do |f| %>
-                    <%= f.text_field :name, :placeholder => "Enter your name..."%><br />
-                    <br/ >
-                    <%= f.submit 'Order', :class => 'btn btn-success' %>
-                  <% end %>       
+                  <% if @is_open == 'true' %>
+                    <%= form_for @order, :html => {:class => 'md-form'} do |f| %>
+                      <%= f.text_field :name, :placeholder => "Enter your name..."%><br />
+                      <br/ >
+                      <%= f.submit 'Order', :class => 'btn btn-success' %>
+                    <% end %>
+                  <% else %>
+                  <h2><b> Cafe is currently closed. </b></h2>
+                  <% end %>
               </div>
           </div>
       </div>
       <!--/.First row-->
 
       <hr class="extra-margins">
-      
+
       <div class="text-center">
         <p>Pickup in Room 313, CHBE Building. Cash Only.</p>
         <%= link_to "Track My Order", orders_path, :class => 'btn btn-primary' %>
-      </div>      
+      </div>
 
   </div>
   <!--/.Main layout-->
