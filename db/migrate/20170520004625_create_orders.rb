@@ -2,7 +2,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
   def change
     create_table :orders do |t|
       t.string :name
-      t.string :aasm_state, :default => 'pending'
+      t.string :aasm_state
 
       t.timestamps
     end

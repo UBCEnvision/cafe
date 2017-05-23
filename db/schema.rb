@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170522004832) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "name"
-    t.string   "aasm_state", default: "pending"
+    t.string   "aasm_state"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end

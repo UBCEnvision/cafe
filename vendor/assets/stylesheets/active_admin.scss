@@ -17,8 +17,7 @@
 //   .status_tag { background: #6090DB; }
 
 .status_tag {
-  &.pending { background: #575757; }
-  &.received { background: #536DFE; }
+  &.received { background: #575757; }
   &.brewing { background: #F1852F; }
   &.completed { background: #689F38; }
 }

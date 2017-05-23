@@ -7,12 +7,8 @@ class Order < ApplicationRecord
   sync :all
 
   aasm do
-    state :pending, :initial => true
-    state :received, :brewing, :completed
-
-    event :receive do
-      transitions :from => :pending, :to => :received
-    end
+    state :received, :initial => true
+    state :brewing, :completed
 
     event :brew do
       transitions :from => :received, :to => :brewing
@@ -23,7 +19,7 @@ class Order < ApplicationRecord
     end
 
     event :undo do
-      transitions :from => [:brewing, :received, :completed], :to => :pending
+      transitions :from => [:brewing, :completed], :to => :received
     end
 
   end
