@@ -65,3 +65,7 @@ gem 'activeadmin_addons'
 
 gem 'mdbootstrap-rails'
 gem 'activeadmin_settings_cached'
+gem 'bootstrap_form'
+gem 'client_side_validations'
+gem 'pusher'
+gem 'render_sync'

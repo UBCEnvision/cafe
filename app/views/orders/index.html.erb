@@ -1,7 +1,7 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1> Chem-E-Cafe </h1>
+  <h1> Chem-E-Cafe: <%= @date_now %> </h1>
   <h2><i class="fa fa-coffee" aria-hidden="true"></i> Track Your Order </h2>
 
   <table class="table">
@@ -18,8 +18,8 @@
       <% @orders.each do |order| %>
         <tr>
           <td><%= link_to order.name, order, :class => 'btn btn-info' %></td>
-          <td><%= order.aasm_state %></td>
-          <td><%= order.created_at.strftime("%d %b. %Y %H:%M") %></td>
+          <td><%= order.aasm_state.capitalize %></td>
+          <td><%= order.created_at.strftime("%d %b %Y %H:%M") %></td>
         </tr>
       <% end %>
     </tbody>

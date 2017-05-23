@@ -4,6 +4,8 @@ class Order < ApplicationRecord
   attr_accessor :active_admin_requested_event
   validates :name, presence: true
 
+  sync :all
+
   aasm do
     state :pending, :initial => true
     state :received, :brewing, :completed

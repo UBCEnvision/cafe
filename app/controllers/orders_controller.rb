@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.where.not(:aasm_state => 'completed').order('created_at DESC')
+    @orders = Order.where("created_at >= ?", Time.zone.now.beginning_of_day).where.not(:aasm_state => 'completed').order('created_at DESC')
+    @date_now = DateTime.now.in_time_zone('America/Los_Angeles').strftime("%d %b %Y")
   end
 
   # GET /orders/1

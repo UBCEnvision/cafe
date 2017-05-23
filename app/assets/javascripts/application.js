@@ -16,5 +16,8 @@
 //= require tether
 //= require bootstrap
 //= require mdb
+//= require rails.validations
+//= require sync
 //= require_tree .
+
 

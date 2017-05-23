@@ -11,11 +11,13 @@
                   <h2 class="h2-responsive"><i class="fa fa-coffee fa-4x"></i></h2>
                   <br>
                   <% if @is_open == 'true' %>
-                    <%= form_for @order, :html => {:class => 'md-form'} do |f| %>
-                      <%= f.text_field :name, :placeholder => "Enter your name..."%><br />
-                      <br/ >
-                      <%= f.submit 'Order', :class => 'btn btn-success' %>
-                    <% end %>
+                    <div class="md-form">                                   
+                      <%= form_for @order, validate: true, :html => {:class => 'form-group'} do |f| %>
+                        <%= f.text_field :name, :placeholder => "Enter your name..."%><br />
+                        <br/ >
+                        <%= f.submit 'Order', :class => 'btn btn-success' %>
+                      <% end %>
+                    </div>
                   <% else %>
                   <h2><b> Cafe is currently closed. </b></h2>
                   <% end %>
