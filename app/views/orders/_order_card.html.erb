@@ -1,0 +1,7 @@
+<h1> Chem-E-Cafe </h1>
+<hr>
+<h2>Hello, <%= @order.name %></h2>
+<h3>Your order ID is: <%= @order.id %></h3>
+<h2 class="h2-responsive"><i class="fa fa-coffee fa-4x faa-float animated"></i></h2>
+<br>
+<h2>Order Status: <b> <%= @order.aasm_state.capitalize %> </b></h2>
